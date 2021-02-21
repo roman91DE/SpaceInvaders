@@ -128,8 +128,14 @@ void Game::moveBullets() {
 }
 
 
-void Game::moveLeft()  { player->move_left();  }
-void Game::moveRight() { player->move_right(); }
+void Game::moveLeft()  {
+    if (player->get_x_pos()>0)
+        player->move_left();
+}
+void Game::moveRight() {
+    if (player->get_x_pos()<(x_max-1))
+        player->move_right();
+}
 
 
 // in mainWindow
