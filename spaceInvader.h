@@ -16,6 +16,7 @@ class Player{
     private:
         int health;
         int x_pos;
+        char reprPlayer;
     public: 
         Player(int _health);
         int get_health();

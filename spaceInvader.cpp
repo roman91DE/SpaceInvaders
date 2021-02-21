@@ -5,7 +5,7 @@ Bullet::Bullet(int _x) : x_bullet(_x), y_bullet(0), active(true) {}
 void Bullet::move() { y_bullet++; }
 
 
-Player::Player(int _health) : health(_health), x_pos(0) {}
+Player::Player(int _health) : health(_health), x_pos(0), reprPlayer('X') {}
 
 int Player::get_health() { return health; }
 
