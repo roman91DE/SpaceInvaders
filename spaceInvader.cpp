@@ -13,9 +13,9 @@ void Player::reduce_health() { health--; }
 
 int Player::get_x_pos() { return x_pos; }
 
-void Player::move_left() {x_pos++;}
+void Player::move_left() {x_pos--;}
 
-void Player::move_right() {x_pos--;}
+void Player::move_right() {x_pos++;}
 
 Bullet Player::shoot() { return Bullet(x_pos); }
 
@@ -52,7 +52,7 @@ void Game::newDroneWave() {
 Game::Game(int x_map, int y_map) : x_max(x_map), y_max(y_map), round_count(0) {
     player = new Player(5);
     // hard coded - change later
-    wave_frequency = 5;
+    wave_frequency = 200;
 }
 
 
@@ -103,18 +103,21 @@ void Game::cleanUp() {
         }
     }
     for (int j = 0; j < alien_waves.size(); j++) {
-        if (alien_waves[i]->health <= 0) {
+        if (alien_waves[j]->health <= 0) {
             Alien *_temp = alien_waves[j];
             alien_waves.erase(alien_waves.begin()+j);
             delete _temp;
-            i--;
+            j--;
         }
     }
 }
 
 void Game::moveAliens() {
-    for (int i = 0; i < alien_waves.size(); i++) {
-        alien_waves[i]->move();
+    if (round_count % 25 == 0)
+    {
+        for (int i = 0; i < alien_waves.size(); i++) {
+            alien_waves[i]->move();
+        }
     }
 }
 

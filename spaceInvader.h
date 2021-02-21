@@ -25,6 +25,8 @@ class Player{
         void move_right();
         int get_x_pos();
         Bullet shoot();
+   friend class Game;
+   friend class myWindow;
 };
 
 
@@ -44,6 +46,7 @@ class Alien{
         int give_damage();
         void take_damage();
     friend class Game;
+    friend class myWindow;
 };
 
 
@@ -76,5 +79,6 @@ class Game {
         void moveBullets();
         void nextRound();
         void cleanUp();
-        
+
+     friend class myWindow;
 };

@@ -1,14 +1,19 @@
 #ifndef MYWINDOW_H
 #define MYWINDOW_H
 
-#include <QMainWindow>
+#include "ConsoleWindow.h"
+#include "spaceInvader.h"
 
-class myWindow : public QMainWindow
+class myWindow : public ConsoleWindow
 {
     Q_OBJECT
+private:
+        Game *game;
 
 public:
-    myWindow(QWidget *parent = nullptr);
+    myWindow();
     ~myWindow();
+    virtual void onRefresh();
+    void drawCurrentState();
 };
 #endif // MYWINDOW_H
