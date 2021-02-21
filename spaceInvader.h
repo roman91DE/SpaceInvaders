@@ -77,7 +77,6 @@ class Game {
         void newDroneWave();
         void moveAliens();
         void moveBullets();
-        void nextRound();
         void cleanUp();
 
      friend class myWindow;

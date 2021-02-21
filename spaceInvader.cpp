@@ -113,6 +113,7 @@ void Game::cleanUp() {
 }
 
 void Game::moveAliens() {
+    // to do: make it faster by time
     if (round_count % 25 == 0)
     {
         for (int i = 0; i < alien_waves.size(); i++) {
@@ -138,18 +139,3 @@ void Game::moveRight() {
 }
 
 
-// in mainWindow
-void Game::nextRound() {
-    round_count++;
-    if (round_count % wave_frequency == 0) { newDroneWave(); }
-    // ereignis schleife für move/shoot
-    moveAliens();
-    moveBullets();
-    damageAliens();
-    damagePlayer();
-    // draw to virtual console
-    if (player->get_health() <= 0) {
-        // Dead - end game 
-    }
-    cleanUp();
-}
